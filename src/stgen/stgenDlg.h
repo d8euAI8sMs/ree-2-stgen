@@ -4,6 +4,9 @@
 #pragma once
 
 #include <util/common/gui/SimulationDialog.h>
+#include <util/common/gui/PlotControl.h>
+
+#include "model.h"
 
 // CstgenDlg dialog
 class CstgenDlg : public CSimulationDialog
@@ -27,4 +30,12 @@ protected:
     afx_msg void OnPaint();
     afx_msg HCURSOR OnQueryDragIcon();
     DECLARE_MESSAGE_MAP()
+public:
+    CPlotControl m_plot;
+    model::model_data m_data;
+    model::sine_generator m_gen;
+    model::sine_generator::cfg_t m_gencfg;
+    size_t m_gencnt;
+    double m_nWnd;
+    afx_msg void OnBnClickedButton1();
 };
